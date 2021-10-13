@@ -1,9 +1,9 @@
 import {GET_ALL_USER_INFO_REQUEST} from './actions';
 
 const initialState = {
-  id: '0',
-  name: 'john Doe',
-  email: 'mail@mail.com',
+  id: null,
+  name: null,
+  email: null,
 };
 
 const reducer = (state = initialState, action) => {

@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {connect} from 'react-redux';
 import {GET_ALL_USER_INFO_REQUEST} from '../models/user/actions';
+import MapView from 'react-native-maps';
 
 const mapStateToProps = (state, props) => {
   const {id, name, email} = state.user;
@@ -19,11 +20,14 @@ const mapDispatchToProps = (dispatch, props) => ({
 
 const HomeScreen = ({id, name, email, getAllUserInfo}) => {
   return (
-    <View>
-      <Text>{id}</Text>
-      <Text>{name}</Text>
-      <Text>{email}</Text>
-    </View>
+    <MapView
+      initialRegion={{
+        latitude: 37.78825,
+        longitude: -122.4324,
+        latitudeDelta: 0.0922,
+        longitudeDelta: 0.0421,
+      }}
+    />
   );
 };
 

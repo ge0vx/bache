@@ -3,7 +3,7 @@ import {createAppContainer} from 'react-navigation';
 import {Home} from '../home';
 
 const MainStack = createStackNavigator({
-  Home: {
+  Mapa: {
     screen: Home,
   },
 });
