@@ -62,7 +62,8 @@ const HomeScreen = ({id, name, email, getAllUserInfo}) => {
   useEffect(() => {
     Geolocation.getCurrentPosition(
       position => {
-        console.log('position::: ', position);
+        const {latitude, longitude} = position.coords;
+        setCurrentPosition({latitude, longitude});
       },
       error =>
         setCurrentPosition({error: {code: error.code, message: error.message}}),
