@@ -1,7 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, StatusBar, StyleSheet, Platform} from 'react-native';
+import {
+  SafeAreaView,
+  StatusBar,
+  StyleSheet,
+  Platform,
+  Button,
+} from 'react-native';
 import {connect} from 'react-redux';
-import {GET_ALL_USER_INFO_REQUEST} from '../models/user/actions';
+import {GET_ALL_USER_INFO_REQUEST} from '../../models/user/actions';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
@@ -20,7 +26,7 @@ const mapDispatchToProps = (dispatch, props) => ({
   },
 });
 
-const HomeScreen = ({id, name, email, getAllUserInfo}) => {
+const HomeScreen = ({id, name, email, getAllUserInfo, navigation}) => {
   const handleLocationPermission = async () => {
     let permissionCheck = '';
     if (Platform.OS === 'ios') {
@@ -95,6 +101,11 @@ const HomeScreen = ({id, name, email, getAllUserInfo}) => {
           showsUserLocation={true}
         />
       )}
+      <Button
+        title="Iniciar Sesion"
+        onPress={() => navigation.navigate('Login')}
+      />
+      <Button title="Registro" onPress={() => navigation.navigate('Signin')} />
     </SafeAreaView>
   );
 };
