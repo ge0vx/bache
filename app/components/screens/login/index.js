@@ -13,7 +13,7 @@ import {  ImageBackground,
         } from 'react-native';
 import {useForm} from 'react-hook-form';
 import {connect} from 'react-redux';
-import {GET_ALL_USER_INFO_REQUEST} from '../../models/user/actions';
+import {GET_ALL_USER_INFO_REQUEST} from '../../../models/user/actions';
 import {FormBuilder} from 'react-native-paper-form-builder';
 
 const theme = {

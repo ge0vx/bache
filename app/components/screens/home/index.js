@@ -8,10 +8,12 @@ import {
   Button,
 } from 'react-native';
 import {connect} from 'react-redux';
-import {GET_ALL_USER_INFO_REQUEST} from '../../models/user/actions';
+import {GET_ALL_USER_INFO_REQUEST} from '../../../models/user/actions';
 import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
 import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
+import BarButtons from './localComponents/barButtons';
+import {customStyleMap} from './styles/viewMap';
 
 const mapStateToProps = (state, props) => {
   const {id, name, email} = state.user;
@@ -84,14 +86,13 @@ const HomeScreen = ({id, name, email, getAllUserInfo, navigation}) => {
     error: null,
   });
 
-  console.log('currentPosition', currentPosition);
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle="dark-content" />
       {currentPosition && (
         <MapView
           style={styles.map}
+          customMapStyle={customStyleMap} 
           provider={PROVIDER_GOOGLE}
           initialRegion={{
             latitude: currentPosition.latitude,
@@ -99,14 +100,14 @@ const HomeScreen = ({id, name, email, getAllUserInfo, navigation}) => {
             latitudeDelta: 0.0922,
             longitudeDelta: 0.0421,
           }}
+          showsBuildings={true}
+          maxZoomLevel={20.5}
+          loadingIndicatorColor="#fcb103"
           showsUserLocation={true}
+          showsMyLocationButton={false}
         />
       )}
-      <Button
-        title="Iniciar Sesion"
-        onPress={() => navigation.navigate('Login')}
-      />
-      <Button title="Registro" onPress={() => navigation.navigate('Signin')} />
+      <BarButtons navigation={navigation} />
     </SafeAreaView>
   );
 };
@@ -115,9 +116,11 @@ const styles = StyleSheet.create({
   container: {
     ...StyleSheet.absoluteFillObject,
     alignItems: 'center',
+    justifyContent: 'flex-end',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+    marginBottom: -30,
   },
 });
 

@@ -1,13 +1,14 @@
 /* eslint-disable prettier/prettier */
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
-import {Home} from '../screens/home';
-import {Profile} from '../screens/profile';
-import {Login} from '../screens/login';
-import {Signin} from '../screens/signin';
+import {Home} from '../components/screens/home';
+import {Profile} from '../components/screens/profile';
+import {Login} from '../components/screens/login';
+import {Signin} from '../components/screens/signin';
+import {Review} from '../components/screens/review';
 
 const MainStack = createStackNavigator({
-  Mapa: {
+  Ruta: {
     screen: Home,
   },
   Profile: {
@@ -18,6 +19,9 @@ const MainStack = createStackNavigator({
   },
   Signin: {
     screen: Signin,
+  },
+  Review: {
+    screen: Review,
   },
 });
 
