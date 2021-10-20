@@ -1,7 +1,7 @@
 import React from 'react';
 import {SafeAreaView, StyleSheet, Text} from 'react-native';
 import {connect} from 'react-redux';
-import {GET_ALL_USER_INFO_REQUEST} from '../../models/user/actions';
+import {GET_ALL_USER_INFO_REQUEST} from '../../../models/user/actions';
 
 const mapStateToProps = (state, props) => {
   const {id, name, email} = state.user;
