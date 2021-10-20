@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {createStackNavigator} from 'react-navigation-stack';
 import {createAppContainer} from 'react-navigation';
 import {Home} from '../components/screens/home';
