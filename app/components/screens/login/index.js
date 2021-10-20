@@ -53,7 +53,7 @@ const LogInScreen = ({id, name, email, getAllUserInfo, navigation}) => {
       <ImageBackground
         style={ styles.imgBackground }
         resizeMode="cover"
-        source={require('./../../src/image/log_in.jpg')}>
+        source={require('../../../src/image/log_in.jpg')}>
         <ScrollView contentContainerStyle={styles.scrollViewStyle}>
           <Text style={styles.headingStyle}>Log in</Text>
           <FormBuilder

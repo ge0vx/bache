@@ -7,7 +7,7 @@ const BarButtons = ({navigation}) => {
   return (
     <View style={styles.container}>
       <Pressable
-        onPress={() => navigation.navigate('Signin')}
+        onPress={() => navigation.navigate('Login')}
         style={{...styles.button, ...styles.buttonLeft}}>
         <Icon name="person" size={20} color="#808080" />
         <Text style={styles.text}>{'Mi Perfíl'}</Text>
